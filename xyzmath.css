@@ -1,0 +1,29 @@
+#something{
+	font-family: sans-serif;
+	color: black;
+}
+h1{
+	color: black;
+}
+#moocow{
+	color: black;
+}
+body{
+	background-color: green;
+}
+#firstdigit{
+	font-weight: bold;
+	font-size: 5em;
+}
+#seconddigit{
+	font-weight: bold;
+	font-size: 5em;
+}
+#symbol {
+	font-weight: bold;
+	font-size: 5em; 
+}
+#otherh2 {
+	font-weight: bold;
+	font-size: 5em;
+}
