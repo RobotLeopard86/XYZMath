@@ -45,3 +45,7 @@ body{
 	height: 30px;
 	background-color: black;
 }
+
+#answer {
+	font-size: 5em;
+}
