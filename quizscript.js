@@ -104,3 +104,9 @@ function endQuiz(){
 	progressBar.style.width = "100%";
 	timerText.innerHTML = "Quiz complete. Your results were " + results + "!" + ' <a href = "quiz.html">Play again</a>';
 }
+
+function checkKey(){
+	if(event.key == "Enter"){
+		submitAnswer();
+	}
+}
