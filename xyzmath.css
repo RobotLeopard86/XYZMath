@@ -1,15 +1,17 @@
 #something{
 	font-family: sans-serif;
 	color: black;
+	font-size: 2em;
 }
 h1{
 	color: black;
 }
 #moocow{
 	color: black;
+	font-size: 2em;
 }
 body{
-	background-color: green;
+	background-color: lightskyblue;
 }
 #firstdigit{
 	font-weight: bold;
@@ -51,6 +53,26 @@ body{
 }
 
 #gamemode {
-	font-size: 1em;
+	font-size: 24px;
 }
 
+#quizlink {
+	font-size:  2em;
+}
+
+a {
+	font-size: 24px;
+}
+
+p {
+	font-size: 22px;
+}
+
+button {
+	font-size: 24px;
+	border-radius: 12px;
+}
+
+ol {
+	font-size: 24px;
+}

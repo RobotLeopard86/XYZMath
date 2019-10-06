@@ -6,7 +6,7 @@ var firstNum;
 var secondNum;
 var timerValue;
 var timerId;
-var timerText = document.getElementById("progressBar");
+var timerText = document.getElementById("progressText");
 var progressBar = document.getElementById("currentProgress");
 var answerBox = document.getElementById("answer");
 var questionCount = 0;
