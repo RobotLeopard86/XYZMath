@@ -69,4 +69,11 @@ function checkAnswer(){
 	} else {
 		message.innerHTML = "Incorrect. Please try again.";
 	}
+	document.getElementById("answer").value = "";
+}
+
+function checkKey(){
+	if(event.key == "Enter"){
+		checkAnswer();
+	}
 }
