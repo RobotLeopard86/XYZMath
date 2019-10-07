@@ -20,10 +20,16 @@ body{
 #seconddigit{
 	font-weight: bold;
 	font-size: 5em;
+	position: relative;
+	left: 408px;
+	bottom: 375px;
 }
 #symbol {
 	font-weight: bold;
-	font-size: 5em; 
+	font-size: 5em;
+	position: relative;
+	left: 204px;
+	bottom: 190px; 
 }
 #otherh2 {
 	font-weight: bold;
