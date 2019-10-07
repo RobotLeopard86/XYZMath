@@ -22,14 +22,12 @@ body{
 	font-size: 5em;
 	position: relative;
 	left: 408px;
-	bottom: 375px;
 }
 #symbol {
 	font-weight: bold;
 	font-size: 5em;
 	position: relative;
-	left: 204px;
-	bottom: 190px; 
+	left: 204px; 
 }
 #otherh2 {
 	font-weight: bold;
