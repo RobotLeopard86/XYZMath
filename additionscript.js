@@ -1,13 +1,17 @@
+var firstNum;
+var secondNum;
+
 function getRandom() {
   return Math.floor(Math.random() *  13);
 }
 
-
-var firstNum = getRandom();
-document.getElementById("firstdigit").innerHTML = firstNum;
-var secondNum = getRandom();
-document.getElementById("seconddigit").innerHTML = secondNum;
-
+function setupQuestion(){
+	firstNum = getRandom();
+	document.getElementById("firstdigit").innerHTML = firstNum;
+	secondNum = getRandom();
+	document.getElementById("seconddigit").innerHTML = secondNum;
+	document.getElementById("message").innerHTML = "Please enter your answer.";
+}
 
 function checkAnswer() {
 	var realAnswer = firstNum + secondNum;
@@ -15,9 +19,10 @@ function checkAnswer() {
 	if(realAnswer == yourAnswer){
 		document.getElementById("message").innerHTML = "Correct. Good Job!";
 	} else {
-		document.getElementById("message").innerHTML = "Incorrect. Please try again.";
+		document.getElementById("message").innerHTML = "Incorrect. The correct answer is: " + realAnswer;
 	}
 	document.getElementById("answer").value = "";
+	setTimeout(setupQuestion, 2000);
 }
 
 function checkKey(){
@@ -25,3 +30,5 @@ function checkKey(){
 		checkAnswer();
 	}
 }
+
+setupQuestion();
