@@ -80,3 +80,14 @@ button {
 ol {
 	font-size: 24px;
 }
+
+#messagebox {
+	background-color: #ff9999;
+}
+
+#messagetext {
+	color: #ff0000;
+	font-weight: bold;
+	font-size: 1em;
+	text-align: center;
+}
