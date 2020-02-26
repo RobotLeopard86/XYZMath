@@ -1,33 +1,36 @@
 #something{
 	font-family: sans-serif;
-	color: black;
+	color: white;
 	font-size: 2em;
 }
 h1{
-	color: black;
+	color: white;
 }
 #moocow{
-	color: black;
+	color: white;
 	font-size: 2em;
 }
 body{
-	background-color: lightskyblue;
+	background-color: #007399;
 }
 #firstdigit{
 	font-weight: bold;
 	font-size: 5em;
+	color: white;
 }
 #seconddigit{
 	font-weight: bold;
 	font-size: 5em;
 	position: relative;
 	left: 408px;
+	color: white;
 }
 #symbol {
 	font-weight: bold;
 	font-size: 5em;
 	position: relative;
 	left: 204px; 
+	color: white;
 }
 #otherh2 {
 	font-weight: bold;
@@ -52,8 +55,8 @@ body{
 	background-color: black;
 }
 
-#answer {
-	font-size: 70px;
+textarea {
+	font-size: 2em;
 }
 
 #gamemode {
@@ -66,15 +69,19 @@ body{
 
 a {
 	font-size: 24px;
+	color: #99e6ff;
 }
 
 p {
 	font-size: 22px;
+	color: white;
 }
 
 button {
 	font-size: 24px;
 	border-radius: 12px;
+	color: black;
+	font
 }
 
 ol {
@@ -90,4 +97,24 @@ ol {
 	font-weight: bold;
 	font-size: 1em;
 	text-align: center;
+}
+
+#gamepage {
+	display: none;
+}
+
+h2 {
+	color: white;
+}
+
+label {
+	color: white;
+}
+
+#timerlengthbox {
+	display: none;
+}
+
+h4 {
+	color: white;
 }
