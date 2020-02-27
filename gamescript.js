@@ -15,6 +15,9 @@ var realAnswer;
 var min;
 var max;
 var timerlength;
+var timeText = document.getElementById("time");
+var time;
+var progress = document.getElementById("completedBar");
 
 function parseSettings(){
 	usedOperations = [];
@@ -48,10 +51,13 @@ function parseSettings(){
 		return;
 	}
 	if(timerlength == 0){
-		if(confirm("Timer is off for this round. Press OK to edit timer value.")){
+		if(!confirm("Timer is off for this round. Press Cancel to edit timer value.")){
 			return;
+		} else {
+			timerZone.style.display = "none";
 		}
 	}
+	progress.max = questionsToDo;
 	pages[0].style.display = "none";
 	pages[1].style.display = "block";
 }
@@ -102,8 +108,8 @@ function setupQuestion(){
 	}
 	if(timerlength != 0){
 		timerValue = timerlengthbox.value;
-		timerId = setInterval(checkTimer, 100);
 	}
+	timerId = setInterval(checkTimer, 100);
 	answerBox.value = "";
 }
 
@@ -115,8 +121,11 @@ function checkTimer(){
 	if(timerValue <= 0){
 		answers.push("unanswered");
 		clearInterval(timerId);
+		progress.value = progress.value + 1;
 		setupQuestion();
 	}
+	time = time + 0.1;
+	timeText.innerHTML = "Elapsed time: " + Number.parseFloat(time).toFixed(1) + " seconds.";
 }
 
 function checkAnswer(){
@@ -127,6 +136,7 @@ function checkAnswer(){
 		answers.push("incorrect");
 	}
 	clearInterval(timerId);
+	progress.value = progress.value + 1;
 	setupQuestion();
 }
 
@@ -137,6 +147,7 @@ function checkKey(){
 }
 
 function startRound(){
+	time = 0;
 	setupQuestion();
 }
 
@@ -147,6 +158,6 @@ function endRound(){
 			score++;
 		}
 	}
-	alert("You got " + score + " out of " + questionsToDo + " questions correct!");
-	window.open("modeselect.html", "_self");
+	alert("You got " + score + " out of " + questionsToDo + " questions correct in " + Number.parseFloat(time).toFixed(1) + " seconds. Great job!");
+	window.open("menu.html", "_self");
 }

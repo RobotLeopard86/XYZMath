@@ -11,7 +11,7 @@ h1{
 	font-size: 2em;
 }
 body{
-	background-color: #007399;
+	background-color: #5c0099;
 }
 #firstdigit{
 	font-weight: bold;
@@ -63,8 +63,10 @@ textarea {
 	font-size: 24px;
 }
 
-#quizlink {
+textarea {
 	font-size:  2em;
+	background-color: #80ffff;
+	color: #004d4d;
 }
 
 a {
@@ -117,4 +119,16 @@ label {
 
 h4 {
 	color: white;
+}
+
+h3 {
+	color: white;
+}
+
+li {
+	color: white;
+}
+
+progress {
+	b: #4d0066;
 }

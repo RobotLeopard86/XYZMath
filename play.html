@@ -5,7 +5,7 @@
 		<title>Play | XYZMath</title>
 	<head>
 	<body>
-		<a href = "modeselect.html">Quit</a>
+		<a href = "menu.html">Quit</a>
 		<hr/>
 		<div id = "settingspage">
 			<h1 id = "topmessage">Choose your settings:</h1>
@@ -23,6 +23,8 @@
 			<input type = "checkbox" id = "mselect">
 			<label for = "dselect">Division</label>
 			<input type = "checkbox" id = "dselect">
+			<hr/>
+			<label for = "sselect">Subtraction may give you a question with a negative number answer.</label>
 			<hr/>
 			<h2>Number range:</h2>
 			<label>Quiz numbers range from </label>
@@ -42,7 +44,11 @@
 			<div id = "timerContents">
 				<hr/>
 				<p id = "timerText">{}</p>
+				<hr/>
 			</div>
+			<p id = "time">{}</p>
+			<label for = "completedBar">Progress:</label>
+			<progress id = "completedBar" value = "0"></progress>
 			<hr/>
 			<span id = "firstDigit">{}</span>
 			<span id = "symbol">{}</span>
@@ -51,6 +57,6 @@
 			<textarea id = "answerBox" rows = "1" cols = "3" onkeyup = "checkKey()" id = "answerBox"></textarea>
 			<button onclick = "checkAnswer()">Submit</button>
 		</div>
-		<script src = "mixedscript.js"></script>
+		<script src = "gamescript.js"></script>
 	</body>
 </html>
