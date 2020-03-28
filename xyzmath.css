@@ -11,7 +11,7 @@ h1{
 	font-size: 2em;
 }
 body{
-	background-color: #5c0099;
+	background-color: #008080;
 }
 #firstdigit{
 	font-weight: bold;
@@ -65,13 +65,11 @@ textarea {
 
 textarea {
 	font-size:  2em;
-	background-color: #80ffff;
-	color: #004d4d;
 }
 
 a {
 	font-size: 24px;
-	color: #99e6ff;
+	color: white;
 }
 
 p {
@@ -130,5 +128,9 @@ li {
 }
 
 progress {
-	b: #4d0066;
+	background-color: #4d0066;
+}
+
+#blockanchor {
+	display: block;
 }
