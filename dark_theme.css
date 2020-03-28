@@ -1,0 +1,56 @@
+h1{
+	color: white;
+}
+
+body{
+	background-color: #008080;
+}
+#firstdigit{
+	color: white;
+}
+#seconddigit{
+	color: white;
+}
+#symbol { 
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+p {
+	color: white;
+}
+
+button {
+	color: black;
+}
+
+#messagebox {
+	background-color: #ff9999;
+}
+
+#messagetext {
+	color: #ff0000;
+}
+
+h2 {
+	color: white;
+}
+
+label {
+	color: white;
+}
+
+h4 {
+	color: white;
+}
+
+h3 {
+	color: white;
+}
+
+li {
+	color: white;
+}
