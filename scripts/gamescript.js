@@ -1,4 +1,4 @@
-var pages = [document.getElementById("settingspage"), document.getElementById("gamepage")];
+var pages = [document.getElementById("settingspage"), document.getElementById("gamepage"), document.getElementById("resultspage")];
 var questionsToDo;
 var answerBox = document.getElementById("answerBox");
 var selectOperationBoxes = [document.getElementById("aselect"), document.getElementById("sselect"), document.getElementById("mselect"), document.getElementById("dselect")];
@@ -18,6 +18,9 @@ var timerlength;
 var timeText = document.getElementById("time");
 var time;
 var progress = document.getElementById("completedBar");
+var answerdisplay = document.getElementById("answerdisplay");
+var resultsdisplay = document.getElementById("resultsdisplay");
+var timerIsOn = false;
 
 function parseSettings(){
 	usedOperations = [];
@@ -34,27 +37,34 @@ function parseSettings(){
 		alert("You must select at least one operation.");
 		return;
 	}
-	if(isNaN(min) || isNaN(max) || isNaN(questionsToDo) || isNaN(timerlength)){
-		alert("Please enter a valid number.");
+	if(isNaN(min)){
+		alert("Please enter a whole number at Min Value.");
 		return;
 	}
-	if(timerlength < 0){
-		alert("Your timer cannot be less than 0.");
+	if(isNaN(max)){
+		alert("Please enter a whole number at Max Value.");
 		return;
 	}
-	if(questionsToDo <= 0){
-		alert("You must input a question count of 1 or above to start a round.");
+	if(timerlength < 0 || isNaN(timerlength) && timerlength.length > 0){
+		alert("Please enter a whole number greater than 0 at Timer Length.");
+		return;
+	}
+	if(timerlength.length == 0 || timerlength == 0){
+		timerIsOn = true;
+	}
+	if(questionsToDo <= 0 || isNaN(questionsToDo)){
+		alert("Please enter a whole number greater than 0 at Question Count.");
 		return;
 	}
 	if(min >= max){
 		alert("Please set the minimum value to be less than the maximum value.");
 		return;
 	}
-	if(timerlength == 0){
-		if(!confirm("Timer is off for this round. Press Cancel to edit timer value.")){
-			return;
-		} else {
+	if(timerIsOn == false){
+		if(confirm("Timer is off for this round. Press Cancel to edit timer value.")){
 			timerZone.style.display = "none";
+		} else {
+			return;
 		}
 	}
 	progress.max = questionsToDo;
@@ -71,6 +81,7 @@ function chooseOperation(){
 }
 
 function setupQuestion(){
+	answerdisplay.innerHTML = "Waiting for answer...";
 	questionCount++;
 	if(questionCount > questionsToDo){
 		endRound();
@@ -102,11 +113,15 @@ function setupQuestion(){
 			symbol.innerHTML = "&#247;";
 			var dividend = firstNum * secondNum;
 			realAnswer = firstNum;
-			firstDigit.innerHTML = dividend;
-			secondDigit.innerHTML = secondNum;
+			if(secondNum == 0){
+				setupQuestion()
+			} else {
+				firstDigit.innerHTML = dividend;
+				secondDigit.innerHTML = secondNum;
+			}
 			break;
 	}
-	if(timerlength != 0){
+	if(timerIsOn == true){
 		timerValue = timerlengthbox.value;
 	}
 	timerId = setInterval(checkTimer, 100);
@@ -129,15 +144,17 @@ function checkTimer(){
 }
 
 function checkAnswer(){
+	clearInterval(timerId);
+	progress.value = progress.value + 1;
 	var yourAnswer = answerBox.value;
 	if(realAnswer == yourAnswer){
 		answers.push("correct")
+		answerdisplay.innerHTML = "Correct!"
 	} else {
 		answers.push("incorrect");
+		answerdisplay.innerHTML = "Incorrect. The correct answer is " + realAnswer + ".";
 	}
-	clearInterval(timerId);
-	progress.value = progress.value + 1;
-	setupQuestion();
+	setTimeout(setupQuestion, 2000);
 }
 
 function checkKey(){
@@ -158,6 +175,29 @@ function endRound(){
 			score++;
 		}
 	}
-	alert("You got " + score + " out of " + questionsToDo + " questions correct in " + Number.parseFloat(time).toFixed(1) + " seconds. Great job!");
-	window.open("menu.html", "_self");
+	pages[0].style.display = "none";
+	pages[1].style.display = "none";
+	pages[2].style.display = "block";
+	resultsdisplay.innerHTML = "Results: You got " + score + " questions correct out of " + questionsToDo + " questions total in " + Number.parseFloat(time).toFixed(1) + " seconds.";
+}
+
+function newRound(action){
+	questionCount = 0;
+	time = 0;
+	progress.value = 0;
+	symbol.innerHTML = "{}";
+	firstDigit.innerHTML = "{}";
+	secondDigit.innerHTML = "{}";
+	timeText.innerHTML = "{}"
+	timerText = "{}";
+	if(action == "samesettings"){
+		pages[0].style.display = "none";
+		pages[1].style.display = "block";
+		pages[2].style.display = "none";
+	}
+	if(action == "differentsettings"){
+		pages[0].style.display = "block";
+		pages[1].style.display = "none";
+		pages[2].style.display = "none";
+	}
 }

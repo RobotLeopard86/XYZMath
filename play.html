@@ -13,7 +13,7 @@
 		<div id = "settingspage">
 			<h1 id = "topmessage">Choose your settings:</h1>
 			<hr/>
-			<h4>Set timer to 0 for no timer.</h4>
+			<h4>Set timer to 0 or leave box blank for no timer.</h4>
 			<textarea rows = "1" cols = "10" placeholder = "Length" id = "timervalue"></textarea>
 			<label for = "timervalue" id = "timerlabel">Measured in seconds.</label>
 			<hr/>
@@ -53,12 +53,22 @@
 			<label for = "completedBar">Progress:</label>
 			<progress id = "completedBar" value = "0"></progress>
 			<hr/>
+			<h3 id = "answerdisplay">Waiting for answer...</h3>
+			<hr/>
 			<span id = "firstDigit">{}</span>
 			<span id = "symbol">{}</span>
 			<span id = "secondDigit">{}</span>
 			<hr/>
 			<textarea id = "answerBox" rows = "1" cols = "3" onkeyup = "checkKey()" id = "answerBox"></textarea>
 			<button onclick = "checkAnswer()">Submit</button>
+		</div>
+		<div id = "resultspage">
+			<h1>Round Complete!</h1>
+			<h3 id = "resultsdisplay">Results: You got {} questions correct out of {} questions total in {} seconds!</h3>
+			<hr/>
+			<button onclick = "newRound('samesettings')">Play Again With The Same Settings</button>
+			<button onclick = "window.open('menu.html', '_self')">Exit to Menu</button>
+			<button onclick = "newRound('differentsettings')">Play Again With Different Settings</button>
 		</div>
 		<script src = "scripts/gamescript.js"></script>
 	</body>

@@ -1,3 +1,4 @@
+//Paul Sowden's code
 function setActiveStyleSheet(title) {
   var i, a, main;
   for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
@@ -65,6 +66,7 @@ setActiveStyleSheet(title);
 var themedisplay = document.getElementById("theme_display");
 var themeicon = document.getElementById("theme_icon");
 
+//My code
 function toggleStyle(){
   if(getActiveStyleSheet() == "light_theme"){
     setActiveStyleSheet("dark_theme");
@@ -76,3 +78,12 @@ function toggleStyle(){
     themedisplay.innerHTML = "Current Theme: Light Theme";
   }
 }
+
+function updateThemeDisplayAndIcon(){
+  if(getActiveStyleSheet() == "dark_theme"){
+    themeicon.src = "icons/sun.png";
+    themedisplay.innerHTML = "Current Theme: Dark Theme";
+  }
+}
+
+updateThemeDisplayAndIcon();
