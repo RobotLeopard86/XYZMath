@@ -1,5 +1,5 @@
 # XYZMath
-A new math program to help make learning math amazing!  [Try it out!](https://sgsiebers.github.io/XYZMath/)
+Built for kids to have fun and learn at the same time.  [Try it out!](https://robotleopard86.github.io/XYZMath/index.html)
 
-# About the Author(s)
-This project is the brainchild of my then 9-year old son, Owen, who wanted to learn some basic web development concepts.  He came up with the idea of building a math quiz game as a way to hone his development skills.  The code here is entirely his, with only minor coaching, and a lot of searching [W3Schools](https://w3schools.com/howto/default.asp). Special thanks to Violet, my 7-year old daughter who has been very helpful testing this app.
+# About the Developer
+I created this project when I was 9 years old as a way to test and hone my web development skills. With minor coaching from my dad, XYZMath has grown into what it is now. Special thanks to my now 7-year old sister, Violet, for testing XYZMath. I also had some help from researching on [W3 Schools]("https://w3schools.com). For more details about me, click [here]("https://robotleopard86.github.io/XYZMath/about.html). The app has a dark theme and light theme available, with light theme being the default. The site uses a cookie to save theme data, but so far, we cannot get it to work on iOS.

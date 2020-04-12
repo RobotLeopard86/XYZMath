@@ -1,5 +1,6 @@
 <!DOCTYPE.html>
 <html>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<head>
 		<link rel="stylesheet" href = "xyzmath.css">
         <link href = "light_theme.css" rel = "stylesheet" title = "light_theme">
@@ -27,14 +28,12 @@
 			<label for = "dselect">Division</label>
 			<input type = "checkbox" id = "dselect">
 			<hr/>
-			<label for = "sselect">Subtraction may give you a question with a negative number answer.</label>
-			<hr/>
 			<h2>Number range:</h2>
 			<label>Quiz numbers range from </label>
 			<textarea rows = "1" cols = "10" placeholder = "Min Value" id = "min"></textarea>
 			<label>to</label>
 			<textarea rows = "1" cols = "10" placeholder = "Max Value" id = "max"></textarea>
-			<label>.</label>
+			<label>. These are the range of numbers that will be added, subtracted, multiplied, or divided to get the answer.</label>
 			<hr/>
 			<h2>Question count:</h2>
 			<label>How many questions you will be asked.</label>
@@ -46,21 +45,21 @@
 			<button onclick = "startRound()">Start</button>
 			<div id = "timerContents">
 				<hr/>
-				<p id = "timerText">{}</p>
+				<p id = "timerText">Waiting for user to start round...</p>
 				<hr/>
 			</div>
-			<p id = "time">{}</p>
-			<label for = "completedBar">Progress:</label>
+			<p id = "time">Elapsed time: 0.0 seconds</p>
+			<label for = "completedBar">Your Progress:</label>
 			<progress id = "completedBar" value = "0"></progress>
 			<hr/>
 			<h3 id = "answerdisplay">Waiting for answer...</h3>
 			<hr/>
-			<span id = "firstDigit">{}</span>
-			<span id = "symbol">{}</span>
-			<span id = "secondDigit">{}</span>
+			<span id = "firstDigit">1</span>
+			<span id = "symbol">+</span>
+			<span id = "secondDigit">2</span>
 			<hr/>
 			<textarea id = "answerBox" rows = "1" cols = "3" onkeyup = "checkKey()" id = "answerBox"></textarea>
-			<button onclick = "checkAnswer()">Submit</button>
+			<button id = "submitButton" onclick = "checkAnswer()">...</button>
 		</div>
 		<div id = "resultspage">
 			<h1>Round Complete!</h1>

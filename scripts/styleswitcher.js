@@ -60,28 +60,34 @@ window.onunload = function(e) {
   createCookie("style", title, 365);
 }
 
+//Paul Sowden's variables
 var cookie = readCookie("style");
 var title = cookie ? cookie : getPreferredStyleSheet();
 setActiveStyleSheet(title);
+//My variables
 var themedisplay = document.getElementById("theme_display");
-var themeicon = document.getElementById("theme_icon");
+var moonicon = document.getElementById("theme_icon_moon");
+var sunicon = document.getElementById("theme_icon_sun");
 
 //My code
 function toggleStyle(){
   if(getActiveStyleSheet() == "light_theme"){
     setActiveStyleSheet("dark_theme");
     themedisplay.innerHTML = "Current Theme: Dark Theme";
-    themeicon.src = "icons/sun.png";
+    moonicon.style.display = "none";
+    sunicon.style.display = "block";
   } else {
     setActiveStyleSheet("light_theme");
-    themeicon.src = "icons/moon.png";
+    moonicon.style.display = "block";
+    sunicon.style.display = "none";
     themedisplay.innerHTML = "Current Theme: Light Theme";
   }
 }
 
 function updateThemeDisplayAndIcon(){
   if(getActiveStyleSheet() == "dark_theme"){
-    themeicon.src = "icons/sun.png";
+    moonicon.style.display = "none";
+    sunicon.style.display = "block";
     themedisplay.innerHTML = "Current Theme: Dark Theme";
   }
 }

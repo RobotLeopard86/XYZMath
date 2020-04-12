@@ -21,6 +21,8 @@ var progress = document.getElementById("completedBar");
 var answerdisplay = document.getElementById("answerdisplay");
 var resultsdisplay = document.getElementById("resultsdisplay");
 var timerIsOn = false;
+var timerOffLock = false;
+var button = document.getElementById("submitButton");
 
 function parseSettings(){
 	usedOperations = [];
@@ -31,7 +33,11 @@ function parseSettings(){
 	}
 	min = parseInt(document.getElementById("min").value);
 	max = parseInt(document.getElementById("max").value);
-	timerlength = parseInt(timerlengthbox.value);
+	timerlength = timerlengthbox.value;
+	if(timerlength.length == 0){
+		timerOffLock = true;
+	}
+	timerlength = parseInt(timerlength);
 	questionsToDo = parseInt(document.getElementById("ques").value);
 	if(usedOperations.length == 0){
 		alert("You must select at least one operation.");
@@ -45,11 +51,11 @@ function parseSettings(){
 		alert("Please enter a whole number at Max Value.");
 		return;
 	}
-	if(timerlength < 0 || isNaN(timerlength) && timerlength.length > 0){
+	if(timerlength < 0 || isNaN(timerlength) && timerlength.length > 0 && timerOffLock == false){
 		alert("Please enter a whole number greater than 0 at Timer Length.");
 		return;
 	}
-	if(timerlength.length == 0 || timerlength == 0){
+	if(timerlength.length > 0 || timerlength != 0 && timerOffLock == false){
 		timerIsOn = true;
 	}
 	if(questionsToDo <= 0 || isNaN(questionsToDo)){
@@ -100,6 +106,9 @@ function setupQuestion(){
 		case "s":
 			symbol.innerHTML = "-";
 			realAnswer = firstNum - secondNum;
+			if(realAnswer < 0){
+				setupQuestion();
+			}
 			firstDigit.innerHTML = firstNum;
 			secondDigit.innerHTML = secondNum;
 			break;
@@ -164,6 +173,7 @@ function checkKey(){
 }
 
 function startRound(){
+	button.innerHTML = "Submit";
 	time = 0;
 	setupQuestion();
 }
@@ -185,11 +195,12 @@ function newRound(action){
 	questionCount = 0;
 	time = 0;
 	progress.value = 0;
-	symbol.innerHTML = "{}";
-	firstDigit.innerHTML = "{}";
-	secondDigit.innerHTML = "{}";
-	timeText.innerHTML = "{}"
-	timerText = "{}";
+	symbol.innerHTML = "+";
+	firstDigit.innerHTML = "1";
+	secondDigit.innerHTML = "2";
+	timeText.innerHTML = "Elapsed time: 0.0 seconds."
+	timerText.innerHTML = "Waiting for user to start round...";
+	button.innerHTML = "...";
 	if(action == "samesettings"){
 		pages[0].style.display = "none";
 		pages[1].style.display = "block";
