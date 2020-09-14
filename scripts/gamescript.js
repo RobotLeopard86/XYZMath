@@ -20,7 +20,7 @@ var time;
 var progress = document.getElementById("completedBar");
 var answerdisplay = document.getElementById("answerdisplay");
 var resultsdisplay = document.getElementById("resultsdisplay");
-var quesTracker = document.getElementById("questcount");
+var quesTracker = document.getElementById("quescount");
 var timerIsOn = false;
 var timerOffLock = false;
 var button = document.getElementById("submitButton");
