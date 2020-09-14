@@ -20,6 +20,7 @@ var time;
 var progress = document.getElementById("completedBar");
 var answerdisplay = document.getElementById("answerdisplay");
 var resultsdisplay = document.getElementById("resultsdisplay");
+var quesTracker = document.getElementById("questcount");
 var timerIsOn = false;
 var timerOffLock = false;
 var button = document.getElementById("submitButton");
@@ -74,6 +75,7 @@ function parseSettings(){
 		}
 	}
 	progress.max = questionsToDo;
+	quesTracker.innerHTML = "0 / " + questionsToDo + " questions completed.";
 	pages[0].style.display = "none";
 	pages[1].style.display = "block";
 }
@@ -151,6 +153,7 @@ function checkTimer(){
 		answers.push("unanswered");
 		clearInterval(timerId);
 		progress.value = progress.value + 1;
+		quesTracker.innerHTML = questionCount + " / " + questionsToDo + " questions completed.";
 		setupQuestion();
 	}
 	time = time + 0.1;
@@ -164,9 +167,11 @@ function checkAnswer(){
 	if(realAnswer == yourAnswer){
 		answers.push("correct")
 		answerdisplay.innerHTML = "Correct!"
+		quesTracker.innerHTML = questionCount + " / " + questionsToDo + " questions completed.";
 	} else {
 		answers.push("incorrect");
 		answerdisplay.innerHTML = "Incorrect. The correct answer is " + realAnswer + ".";
+		quesTracker.innerHTML = questionCount + " / " + questionsToDo + " questions completed.";
 	}
 	setTimeout(setupQuestion, 2000);
 }
@@ -198,6 +203,7 @@ function endRound(){
 
 function newRound(action){
 	questionCount = 0;
+	quesTracker.innerHTML = "0 / " + questionsToDo + " questions completed.";
 	time = 0;
 	progress.value = 0;
 	symbol.innerHTML = "+";
