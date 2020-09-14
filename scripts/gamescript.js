@@ -88,7 +88,6 @@ function chooseOperation(){
 
 function setupQuestion(){
 	answerdisplay.innerHTML = "Waiting for answer...";
-	questionCount++;
 	if(questionCount > questionsToDo){
 		endRound();
 		return;
@@ -107,6 +106,7 @@ function setupQuestion(){
 			symbol.innerHTML = "-";
 			realAnswer = firstNum - secondNum;
 			if(realAnswer < 0){
+				questionCount--;
 				setupQuestion();
 			}
 			firstDigit.innerHTML = firstNum;
@@ -123,6 +123,7 @@ function setupQuestion(){
 			var dividend = firstNum * secondNum;
 			realAnswer = firstNum;
 			if(secondNum == 0){
+				questionCount--;
 				setupQuestion()
 			} else {
 				firstDigit.innerHTML = dividend;
