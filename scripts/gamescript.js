@@ -88,7 +88,7 @@ function chooseOperation(){
 
 function setupQuestion(){
 	answerdisplay.innerHTML = "Waiting for answer...";
-	if(questionCount >= questionsToDo - 1){
+	if(questionCount >= questionsToDo){
 		endRound();
 		return;
 	}
