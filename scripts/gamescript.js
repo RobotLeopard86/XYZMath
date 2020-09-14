@@ -206,6 +206,7 @@ function newRound(action){
 	timeText.innerHTML = "Elapsed time: 0.0 seconds."
 	timerText.innerHTML = "Waiting for user to start round...";
 	button.innerHTML = "...";
+	answers = [];
 	if(action == "samesettings"){
 		pages[0].style.display = "none";
 		pages[1].style.display = "block";
