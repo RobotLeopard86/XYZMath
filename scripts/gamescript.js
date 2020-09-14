@@ -92,6 +92,7 @@ function setupQuestion(){
 		endRound();
 		return;
 	}
+	questionCount++;
 	var chosenOperation = chooseOperation();
 	firstNum = getRandom();
 	secondNum = getRandom();
