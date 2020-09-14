@@ -90,7 +90,7 @@ function chooseOperation(){
 
 function setupQuestion(){
 	answerdisplay.innerHTML = "Waiting for answer...";
-	if(!questionCount == questionsToDo){
+	if(questionCount >= questionsToDo){
 		endRound();
 		return;
 	}
