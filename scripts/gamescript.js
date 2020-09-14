@@ -107,6 +107,7 @@ function setupQuestion(){
 			realAnswer = firstNum - secondNum;
 			if(realAnswer < 0){
 				questionCount--;
+				clearInterval(timerId);
 				setupQuestion();
 			}
 			firstDigit.innerHTML = firstNum;
@@ -124,6 +125,7 @@ function setupQuestion(){
 			realAnswer = firstNum;
 			if(secondNum == 0){
 				questionCount--;
+				clearInterval(timerId);
 				setupQuestion()
 			} else {
 				firstDigit.innerHTML = dividend;
