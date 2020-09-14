@@ -134,6 +134,7 @@ function setupQuestion(){
 	if(timerIsOn == true){
 		timerValue = timerlengthbox.value;
 	}
+	clearInterval(timerId)
 	timerId = setInterval(checkTimer, 100);
 	answerBox.value = "";
 }
