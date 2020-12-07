@@ -32,8 +32,8 @@ function parseSettings(){
 			usedOperations.push(operations[j]);
 		}
 	}
-	min = parseInt(document.getElementById("min").value);
-	max = parseInt(document.getElementById("max").value);
+	min = Number.parseFloat(document.getElementById("min").value).toFixed(3);
+	max = Number.parseFloat(document.getElementById("max").value).toFixed(3);
 	timerlength = timerlengthbox.value;
 	if(timerlength.length == 0){
 		timerOffLock = true;
@@ -81,7 +81,7 @@ function parseSettings(){
 }
 
 function getRandom(){
-	return min + Math.floor(Math.random() * (max - min));
+	return min + Number.parseFloat(Math.random() * (max - min)).toFixed(3);
 }
 
 function chooseOperation(){
