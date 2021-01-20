@@ -81,7 +81,7 @@ function parseSettings(){
 }
 
 function getRandom(){
-	return min + Number.parseFloat(Math.random() * (max - min)).toFixed(3);
+	return min + Number.parseFloat(Math.random() * (max - min)).toFixed(2);
 }
 
 function chooseOperation(){
@@ -98,6 +98,12 @@ function setupQuestion(){
 	var chosenOperation = chooseOperation();
 	firstNum = getRandom();
 	secondNum = getRandom();
+	if(isNan(firstNum) || isNan(secondNum)){
+		questionCount--;
+		setupQuestion();
+	}
+	firstNum = Number.parseFloat(firstNum).toFixed(2);
+	secondNum = Number.parseFloat(secondNum).toFixed(2);
 	switch(chosenOperation){
 		case "a":
 			symbol.innerHTML = "+";
